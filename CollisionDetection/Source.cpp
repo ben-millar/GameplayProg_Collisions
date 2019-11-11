@@ -55,6 +55,8 @@ int main() {
 
 	srand(time(NULL));
 
+	BoundingBox::Circle t_circle(5,5,10);
+
 	// Point Collision
 	Point_old player_point;
 	player_point.x = rand() % 10 + 1;
