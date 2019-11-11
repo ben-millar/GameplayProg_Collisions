@@ -3,6 +3,11 @@
 class BoundingBox
 {
 public:
+	/////////////////////////////////////////////////////////////////////////////
+	
+	/// <summary>
+	/// Point Bounding Box Class
+	/// </summary>
 	class Point
 	{
 	public:
@@ -16,6 +21,11 @@ public:
 		float m_x{ 0.0f }, m_y{ 0.0f };
 	};
 
+	/////////////////////////////////////////////////////////////////////////////
+
+	/// <summary>
+	/// Circle Bounding Box Class
+	/// </summary>
 	class Circle 
 	{
 	public:
@@ -31,6 +41,11 @@ public:
 		float m_radius{ 0.0f };
 	};
 
+	/////////////////////////////////////////////////////////////////////////////
+
+	/// <summary>
+	/// Axis-Aligned Bounding Box Class
+	/// </summary>
 	class AABB 
 	{
 	public:
@@ -46,4 +61,6 @@ public:
 		Point m_p;
 		float m_width{ 0.0f }, m_height{ 0.0f };
 	};
+
+	/////////////////////////////////////////////////////////////////////////////
 };
