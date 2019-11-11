@@ -1,8 +1,9 @@
 #include <iostream>
 #include <math.h>
 #include <time.h>
+#include "BoundingBox.h"
 
-class Point {
+class Point_old {
 public:
 	int x;
 	int y;
@@ -12,9 +13,9 @@ public:
 	}
 };
 
-class Circle {
+class Circle_old {
 public:
-	Point p;
+	Point_old p;
 	int r;
 
 	void print() {
@@ -22,9 +23,9 @@ public:
 	}
 };
 
-class Box { 
+class Box_old { 
 public: 
-	Point p; //top-left
+	Point_old p; //top-left
 	int w; 
 	int h; 
 	void print() {
@@ -32,7 +33,7 @@ public:
 	} 
 };
 
-int calculate_hypotenuse(Point a, Point b) {
+int calculate_hypotenuse(Point_old a, Point_old b) {
 	int result = 0;
 
 	// Find the distance (Length) of X and Y  
@@ -55,33 +56,33 @@ int main() {
 	srand(time(NULL));
 
 	// Point Collision
-	Point player_point;
+	Point_old player_point;
 	player_point.x = rand() % 10 + 1;
 	player_point.y = rand() % 10 + 1;
 
-	Point npc_point;
+	Point_old npc_point;
 	npc_point.x = rand() % 10 + 1;
 	npc_point.y = rand() % 10 + 1;
 
 	// Circle Collision
-	Circle player_circle;
+	Circle_old player_circle;
 	player_circle.p.x = rand() % 10 + 1;
 	player_circle.p.y = rand() % 10 + 1;
 	player_circle.r = rand() % 2 + 1;
 	
-	Circle npc_circle;
+	Circle_old npc_circle;
 	npc_circle.p.x = rand() % 10 + 1;
 	npc_circle.p.y = rand() % 10 + 1;
 	npc_circle.r = rand() % 2 + 1;
 
 	// Box collision
-	Box player_box;
+	Box_old player_box;
 	player_box.p.x = rand() % 10 + 1;
 	player_box.p.y = rand() % 10 + 1;
 	player_box.w = rand() % 5 + 1;
 	player_box.h = rand() % 5 + 1;
 
-	Box npc_box;
+	Box_old npc_box;
 	npc_box.p.x = rand() % 10 + 1;
 	npc_box.p.y = rand() % 10 + 1;
 	npc_box.w = rand() % 5 + 1;
