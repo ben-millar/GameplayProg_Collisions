@@ -33,7 +33,6 @@
     <ClCompile Include="src\Capsule_Obj.cpp" />
     <ClCompile Include="src\Circle_Obj.cpp" />
     <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\main.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SFML_SDK)\include;.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SFML_SDK)\include;.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>

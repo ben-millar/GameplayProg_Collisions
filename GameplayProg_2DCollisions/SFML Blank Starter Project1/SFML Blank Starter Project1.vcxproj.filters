@@ -65,9 +65,6 @@
     <ClCompile Include="src\Circle_Obj.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameObject.cpp">
-      <Filter>Source Files\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="src\Polygon_Obj.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
