@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -19,40 +19,35 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnimatedSprite.h" />
-    <ClInclude Include="PlayerFSM.h" />
-    <ClInclude Include="Climbing.h" />
-    <ClInclude Include="Debug.h" />
-    <ClInclude Include="NPC.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="tinyc2.h" />
-    <ClInclude Include="Idle.h" />
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="Jumping.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="State.h" />
+    <ClInclude Include="include\AABB_Obj.h" />
+    <ClInclude Include="include\Capsule_Obj.h" />
+    <ClInclude Include="include\Circle_Obj.h" />
+    <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\GameObject.h" />
+    <ClInclude Include="include\Polygon_Obj.h" />
+    <ClInclude Include="include\Ray_Obj.h" />
+    <ClInclude Include="include\tinyc2.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AnimatedSprite.cpp" />
-    <ClCompile Include="PlayerFSM.cpp" />
-    <ClCompile Include="Climbing.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Idle.cpp" />
-    <ClCompile Include="Input.cpp" />
-    <ClCompile Include="Jumping.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="NPC.cpp" />
-    <ClCompile Include="Player.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\README.md" />
+    <ClCompile Include="src\AABB_Obj.cpp" />
+    <ClCompile Include="src\Capsule_Obj.cpp" />
+    <ClCompile Include="src\Circle_Obj.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GameObject.cpp" />
+    <ClCompile Include="src\main.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SFML_SDK)\include;.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SFML_SDK)\include;.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SFML_SDK)\include;.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SFML_SDK)\include;.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="src\Polygon_Obj.cpp" />
+    <ClCompile Include="src\Ray_Obj.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{1BC25414-4B13-438A-9D4F-B4D6C048AB52}</ProjectGuid>
-    <RootNamespace>2DCollision</RootNamespace>
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{2136645e-fea6-423c-90d9-bef5dd05294c}</ProjectGuid>
+    <RootNamespace>SFML_Blank_Starter_Project1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>2DCollision</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -99,22 +94,20 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir);$(SFML_SDK)\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SFML_SDK)\lib;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir);$(SFML_SDK)/include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SFML_SDK)/lib/;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SFML_SDK)\include;.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>sfml-main-d.lib;sfml-audio-d.lib;sfml-graphics-d.lib;sfml-network-d.lib;sfml-system-d.lib;sfml-window-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(SFML_SDK)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;sfml-audio-s-d.lib;%(AdditionalDependencies);freetype.lib;opengl32.lib;gdi32.lib;winmm.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -122,14 +115,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SFML_SDK)\include;.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-audio-d.lib;sfml-system-d.lib;sfml-window-d.lib;sfml-network-d.lib;sfml-window.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
-    <PostBuildEvent>
-      <Command>
-      </Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -138,10 +130,16 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SFML_SDK)\include;.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SFML_SDK)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;sfml-network-s.lib;sfml-audio-s.lib;%(AdditionalDependencies);freetype.lib;opengl32.lib;gdi32.lib;winmm.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -151,8 +149,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SFML_SDK)\include;.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
