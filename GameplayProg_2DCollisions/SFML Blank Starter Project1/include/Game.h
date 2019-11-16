@@ -1,6 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <GameObject.h>
 #include <AABB_Obj.h>
@@ -36,6 +37,11 @@ private:
 	void update(sf::Time t_deltaTime);
 
 	/// <summary>
+	/// Handles collisions between all game objects
+	/// </summary>
+	void collisionHandler();
+
+	/// <summary>
 	/// Draws/Flips framebuffer
 	/// </summary>
 	void render();
@@ -45,11 +51,11 @@ private:
 
 	std::array<GameObject*, 5> p_objArray;
 
-	AABB_Obj aabbObject;
-	Capsule_Obj capsuleObject;
-	Circle_Obj circleObject;
-	Polygon_Obj polyObject;
-	Ray_Obj rayObject;
+	AABB_Obj m_aabbObject;
+	Capsule_Obj m_capsuleObject;
+	Circle_Obj m_circleObject;
+	Polygon_Obj m_polyObject;
+	Ray_Obj m_rayObject;
 
 };
 #endif

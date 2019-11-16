@@ -2,6 +2,7 @@
 #define POLYGON_OBJ_H
 
 #include "GameObject.h"
+
 class Polygon_Obj :
 	public GameObject
 {
@@ -26,6 +27,20 @@ public:
 	/// </summary>
 	/// <param name="t_window">render window to draw to</param>
 	void draw(sf::RenderWindow& t_window) override;
+
+	/// <summary>
+	/// Gets a const pointer to our bounding box
+	/// </summary>
+	/// <returns>pointer to our bounding box</returns>
+	inline c2Poly const* getBounds() const { return &m_boundingBox; }
+
+private:
+
+	void setupShape();
+	void updateBoundingBox();
+
+	c2Poly m_boundingBox = c2Poly();
+
 };
 
 #endif //!POLYGON_OBJ_H

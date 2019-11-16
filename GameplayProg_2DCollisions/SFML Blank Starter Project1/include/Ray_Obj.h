@@ -2,6 +2,7 @@
 #define RAY_OBJ_H
 
 #include "GameObject.h"
+
 class Ray_Obj :
 	public GameObject
 {
@@ -26,6 +27,20 @@ public:
 	/// </summary>
 	/// <param name="t_window">render window to draw to</param>
 	void draw(sf::RenderWindow& t_window) override;
+
+	/// <summary>
+	/// Gets a const pointer to our bounding box
+	/// </summary>
+	/// <returns>pointer to our bounding box</returns>
+	inline c2Ray const* const getBounds() const { return &m_boundingBox; }
+
+private:
+
+	void setupShape();
+	void updateBoundingBox();
+
+	c2Ray m_boundingBox = c2Ray();
+
 };
 
 #endif //!RAY_OBJ_H

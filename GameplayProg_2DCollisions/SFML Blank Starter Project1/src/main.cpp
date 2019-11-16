@@ -8,10 +8,15 @@
 // Session 1 Start: 13:15 End:
 // Total time taken:
 
+// @TODO: Abstract collision handling out to a collision handler class
+
 #include "Game.h"
 
 int main()
 {
+	// seed our RNG for placement/velocity
+	srand(static_cast<unsigned>(time(nullptr)));
+
 	Game game;
 	game.run();
 	return EXIT_SUCCESS;

@@ -28,7 +28,20 @@ public:
 	/// <param name="t_window">render window to draw to</param>
 	void draw(sf::RenderWindow& t_window) override;
 
+	/// <summary>
+	/// Gets a const pointer to our bounding box
+	/// </summary>
+	/// <returns>pointer to our bounding box</returns>
+	inline c2AABB const* getBounds() const { return &m_boundingBox; }
+
 private:
+
+	void setupShape();
+	void updateBoundingBox();
+
+	sf::RectangleShape m_shape;
+
+	c2AABB m_boundingBox = c2AABB();
 };
 
 #endif // !AABB_OBJ_H
