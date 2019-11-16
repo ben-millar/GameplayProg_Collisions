@@ -1,4 +1,3 @@
-#define TINYC2_IMPL
 #include "Game.h"
 
 /// <summary>
@@ -86,71 +85,72 @@ void Game::update(sf::Time t_deltaTime)
 		p->update(t_deltaTime);
 	}
 
-	collisionHandler();
+	handleCollisions();
 }
 
 /////////////////////////////////////////////////////////////
 
-void Game::collisionHandler()
+void Game::handleCollisions()
 {
 	// Unfortunately, this library does not provide a generic object type, and so true polymorphism isn't possible :(
+	// But, I have abstracted collision checking out to a CollisionHandler class
 
 	// AABB/Capsule
-	if (c2AABBtoCapsule(*m_aabbObject.getBounds(), *m_capsuleObject.getBounds()))
+	if (CollisionHandler::resolve(m_aabbObject, m_capsuleObject))
 	{
 		std::cout << "AABB to Capsule collision!" << std::endl;
 	}
 
 	// AABB/Circle
-	if (c2CircletoAABB(*m_circleObject.getBounds(), *m_aabbObject.getBounds()))
+	if (CollisionHandler::resolve(m_aabbObject, m_circleObject))
 	{
 		std::cout << "AABB to Circle collision!" << std::endl;
 	}
 
 	// AABB/Poly
-	if (c2AABBtoPoly(*m_aabbObject.getBounds(), m_polyObject.getBounds(), nullptr))
+	if (CollisionHandler::resolve(m_aabbObject, m_polyObject))
 	{
 		std::cout << "AABB to Poly collision!" << std::endl;
 	}
 
 	// AABB/Ray
-	if (c2RaytoAABB(*m_rayObject.getBounds(), *m_aabbObject.getBounds(), nullptr))
+	if (CollisionHandler::resolve(m_aabbObject, m_rayObject))
 	{
 		std::cout << "AABB to Ray collision!" << std::endl;
 	}
 
 	// Capsule/Circle
-	if (c2CircletoCapsule(*m_circleObject.getBounds(), *m_capsuleObject.getBounds()))
+	if (CollisionHandler::resolve(m_capsuleObject, m_circleObject))
 	{
 		std::cout << "Circle to Capsule collision!" << std::endl;
 	}
 
 	// Capsule/Poly
-	if (c2CapsuletoPoly(*m_capsuleObject.getBounds(), m_polyObject.getBounds(), nullptr))
+	if (CollisionHandler::resolve(m_capsuleObject, m_polyObject))
 	{
 		std::cout << "Capsule to Poly collision!" << std::endl;
 	}
 
 	// Capsule/Ray
-	if (c2RaytoCapsule(*m_rayObject.getBounds(), *m_capsuleObject.getBounds(), nullptr))
+	if (CollisionHandler::resolve(m_capsuleObject, m_rayObject))
 	{
 		std::cout << "Capsule to Ray collision!" << std::endl;
 	}
 
 	// Circle/Poly
-	if (c2CircletoPoly(*m_circleObject.getBounds(), m_polyObject.getBounds(), nullptr))
+	if (CollisionHandler::resolve(m_circleObject, m_polyObject))
 	{
 		std::cout << "Circle to Poly collision!" << std::endl;
 	}
 
 	// Circle/Ray
-	if (c2RaytoCircle(*m_rayObject.getBounds(), *m_circleObject.getBounds(), nullptr))
+	if (CollisionHandler::resolve(m_circleObject, m_rayObject))
 	{
 		std::cout << "Circle to Ray collision!" << std::endl;
 	}
 
 	// Poly/Ray
-	if (c2RaytoPoly(*m_rayObject.getBounds(), m_polyObject.getBounds(), nullptr, nullptr))
+	if (CollisionHandler::resolve(m_polyObject, m_rayObject))
 	{
 		std::cout << "Poly to Ray collision!" << std::endl;
 	}

@@ -1,3 +1,5 @@
+#pragma once
+
 /*
 tinyc2.h - v1.03
 

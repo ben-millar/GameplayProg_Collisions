@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <CollisionHandler.h>
 #include <GameObject.h>
 #include <AABB_Obj.h>
 #include <Capsule_Obj.h>
@@ -11,6 +12,7 @@
 #include <Ray_Obj.h>
 
 #include <array>
+
 
 class Game
 {
@@ -39,7 +41,7 @@ private:
 	/// <summary>
 	/// Handles collisions between all game objects
 	/// </summary>
-	void collisionHandler();
+	void handleCollisions();
 
 	/// <summary>
 	/// Draws/Flips framebuffer

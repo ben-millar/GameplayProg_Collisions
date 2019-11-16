@@ -22,6 +22,7 @@
     <ClInclude Include="include\AABB_Obj.h" />
     <ClInclude Include="include\Capsule_Obj.h" />
     <ClInclude Include="include\Circle_Obj.h" />
+    <ClInclude Include="include\CollisionHandler.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\GameObject.h" />
     <ClInclude Include="include\Polygon_Obj.h" />
@@ -32,6 +33,7 @@
     <ClCompile Include="src\AABB_Obj.cpp" />
     <ClCompile Include="src\Capsule_Obj.cpp" />
     <ClCompile Include="src\Circle_Obj.cpp" />
+    <ClCompile Include="src\CollisionHandler.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SFML_SDK)\include;.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -47,6 +49,7 @@
     <ProjectGuid>{2136645e-fea6-423c-90d9-bef5dd05294c}</ProjectGuid>
     <RootNamespace>SFML_Blank_Starter_Project1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>GameplayProg_2DCollisions</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

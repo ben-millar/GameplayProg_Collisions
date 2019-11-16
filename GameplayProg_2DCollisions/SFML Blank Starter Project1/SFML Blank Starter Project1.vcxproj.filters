@@ -22,6 +22,9 @@
     <Filter Include="Header Files\Collisions">
       <UniqueIdentifier>{c4b37e94-81d8-4090-beea-9d9a64b2080b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Collisions">
+      <UniqueIdentifier>{a51352c8-d515-4532-a873-b0d671723546}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Game.h">
@@ -48,6 +51,9 @@
     <ClInclude Include="include\tinyc2.h">
       <Filter>Header Files\Collisions</Filter>
     </ClInclude>
+    <ClInclude Include="include\CollisionHandler.h">
+      <Filter>Header Files\Collisions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -70,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="src\Ray_Obj.cpp">
       <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CollisionHandler.cpp">
+      <Filter>Source Files\Collisions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

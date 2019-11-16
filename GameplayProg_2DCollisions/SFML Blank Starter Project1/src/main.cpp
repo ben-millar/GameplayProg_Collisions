@@ -6,10 +6,9 @@
 //
 // Estimated time to complete: 6.5 hours
 // Session 1 Start: 13:15 End: 15:40 – 902 lines of code
-// Session 2 Start: 16:25 End: 
-// Total time taken: 2 hours 25 minutes
+// Session 2 Start: 16:25 End: 17:45
+// Total time taken: 3 hours 45 minutes
 
-// @TODO: Abstract collision handling out to a collision handler class
 
 #include "Game.h"
 
