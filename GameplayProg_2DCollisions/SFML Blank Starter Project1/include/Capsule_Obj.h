@@ -45,8 +45,8 @@ private:
 		sf::CircleShape b;
 		sf::RectangleShape rect;
 
-		float radius;
-		float length;
+		float radius{ 25.0f };
+		float length{ 50.0f };
 
 		void init();
 		void setPosition(sf::Vector2f t_pos);

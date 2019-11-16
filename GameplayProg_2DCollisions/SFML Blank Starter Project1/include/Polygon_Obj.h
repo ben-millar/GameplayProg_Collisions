@@ -39,6 +39,11 @@ private:
 	void setupShape();
 	void updateBoundingBox();
 
+	c2v m_a{ -25.0f, 25.0f };
+	c2v m_b{ 0.0f,-25.0f };
+	c2v m_c{ 25.0f,25.0f };
+
+	sf::ConvexShape m_shape;
 	c2Poly m_boundingBox = c2Poly();
 
 };

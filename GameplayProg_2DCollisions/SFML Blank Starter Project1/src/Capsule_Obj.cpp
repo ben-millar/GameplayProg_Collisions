@@ -19,9 +19,6 @@ void Capsule_Obj::init()
 
 void Capsule_Obj::setupShape()
 {
-	m_shape.radius = 25.0f;
-	m_shape.length = 50.0f;
-
 	m_shape.init();
 	m_shape.setColor(sf::Color::Red);
 	m_shape.setPosition(m_position);
