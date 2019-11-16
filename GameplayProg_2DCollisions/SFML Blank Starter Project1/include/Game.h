@@ -9,31 +9,47 @@
 #include <Polygon_Obj.h>
 #include <Ray_Obj.h>
 
+#include <array>
+
 class Game
 {
 public:
-	// #### CONSTRUCTOR/DESTRUCTOR ####
 
 	Game();
 	~Game();
 
-	// ######## PUBLIC METHODS ########
-
+	/// <summary>
+	/// Our main game loop: calls processEvents/Update/Render
+	/// </summary>
 	void run();
 
 private:
-
-	// ####### PRIVATE METHODS ########
-
+	/// <summary>
+	/// Handle queue of incoming events; process or ignore
+	/// </summary>
 	void processEvents();
+
+	/// <summary>
+	/// Main update loop of our game
+	/// </summary>
+	/// <param name="t_deltaTime">time since last update call</param>
 	void update(sf::Time t_deltaTime);
+
+	/// <summary>
+	/// Draws/Flips framebuffer
+	/// </summary>
 	void render();
 
-
-	// ####### PRIVATE VARIABLES ######
 	sf::RenderWindow m_window;
 	bool m_exitGame;
 
-	// ################################
+	std::array<GameObject*, 5> p_objArray;
+
+	AABB_Obj aabbObject;
+	Capsule_Obj capsuleObject;
+	Circle_Obj circleObject;
+	Polygon_Obj polyObject;
+	Ray_Obj rayObject;
+
 };
 #endif

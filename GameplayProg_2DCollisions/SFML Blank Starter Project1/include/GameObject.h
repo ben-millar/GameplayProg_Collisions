@@ -27,8 +27,9 @@ public:
 	/// <param name="t_window">render window to draw to</param>
 	virtual void draw(sf::RenderWindow& t_window) = 0;
 
-private:
 protected:
+	sf::Vector2f m_position{ 0.0f,0.0f };
+	sf::Vector2f m_velocity{ 0.0f,0.0f };
 };
 
 #endif //!GAMEOBJECT_H

@@ -7,7 +7,15 @@ Game::Game() :
 	m_window{ sf::VideoMode{ 800, 600, 32 }, "2D Collisions", sf::Style::Close },
 	m_exitGame{ false }
 {
+	p_objArray = { &aabbObject, &capsuleObject, &circleObject, &polyObject, &rayObject };
+
+	for (auto p : p_objArray)
+	{
+		p->init();
+	}
 }
+
+/////////////////////////////////////////////////////////////
 
 /// <summary>
 /// Default Destructor
@@ -15,6 +23,8 @@ Game::Game() :
 Game::~Game()
 {
 }
+
+/////////////////////////////////////////////////////////////
 
 /// <summary>
 /// Main run method
@@ -40,6 +50,8 @@ void Game::run()
 	}
 }
 
+/////////////////////////////////////////////////////////////
+
 void Game::processEvents()
 {
 	sf::Event event;
@@ -59,16 +71,31 @@ void Game::processEvents()
 	}
 }
 
+/////////////////////////////////////////////////////////////
+
 void Game::update(sf::Time t_deltaTime)
 {
 	if (m_exitGame)
 	{
 		m_window.close();
 	}
+
+	for (auto p : p_objArray)
+	{
+		p->update(t_deltaTime);
+	}
 }
+
+/////////////////////////////////////////////////////////////
 
 void Game::render()
 {
 	m_window.clear(sf::Color::White);
+
+	for (auto p : p_objArray)
+	{
+		p->draw(m_window);
+	}
+
 	m_window.display();
 }
