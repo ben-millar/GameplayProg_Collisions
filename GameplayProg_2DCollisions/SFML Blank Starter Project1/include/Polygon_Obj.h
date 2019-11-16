@@ -23,7 +23,7 @@ public:
 	void update(sf::Time t_deltaTime) override;
 
 	/// <summary>
-	/// Draw our SFML::shape and bounding box to the game window
+	/// Draw our SFML::capsuleShape and bounding box to the game window
 	/// </summary>
 	/// <param name="t_window">render window to draw to</param>
 	void draw(sf::RenderWindow& t_window) override;

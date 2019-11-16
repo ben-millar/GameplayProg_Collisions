@@ -22,7 +22,7 @@ public:
 	virtual void update(sf::Time t_deltaTime) = 0;
 
 	/// <summary>
-	/// Draw our SFML::shape and bounding box to the game window
+	/// Draw our SFML::capsuleShape and bounding box to the game window
 	/// </summary>
 	/// <param name="t_window">render window to draw to</param>
 	virtual void draw(sf::RenderWindow& t_window) = 0;

@@ -5,8 +5,9 @@
 //		   using the tinyc2 library
 //
 // Estimated time to complete: 6.5 hours
-// Session 1 Start: 13:15 End:
-// Total time taken:
+// Session 1 Start: 13:15 End: 15:40 – 902 lines of code
+// Session 2 Start: 16:25 End: 
+// Total time taken: 2 hours 25 minutes
 
 // @TODO: Abstract collision handling out to a collision handler class
 

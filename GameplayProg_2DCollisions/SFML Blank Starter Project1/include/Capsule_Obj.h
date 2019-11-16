@@ -23,7 +23,7 @@ public:
 	void update(sf::Time t_deltaTime) override;
 
 	/// <summary>
-	/// Draw our SFML::shape and bounding box to the game window
+	/// Draw our SFML::capsuleShape and bounding box to the game window
 	/// </summary>
 	/// <param name="t_window">render window to draw to</param>
 	void draw(sf::RenderWindow& t_window) override;
@@ -38,6 +38,22 @@ private:
 
 	void setupShape();
 	void updateBoundingBox();
+
+	struct capsuleShape
+	{
+		sf::CircleShape a;
+		sf::CircleShape b;
+		sf::RectangleShape rect;
+
+		float radius;
+		float length;
+
+		void init();
+		void setPosition(sf::Vector2f t_pos);
+		void setColor(sf::Color t_color);
+		void draw(sf::RenderWindow& t_window);
+
+	} m_shape;
 
 	c2Capsule m_boundingBox = c2Capsule();
 };

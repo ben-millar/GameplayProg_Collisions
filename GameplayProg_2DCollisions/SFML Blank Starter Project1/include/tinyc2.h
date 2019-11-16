@@ -37,7 +37,7 @@ in *one* C/CPP file (translation unit) that includes this file
 /*
 THE IMPORTANT PARTS:
 Most of the math types in this header are for internal use. Users care about
-the shape types and the collision functions.
+the capsuleShape types and the collision functions.
 
 SHAPE TYPES:
 * c2Circle
@@ -46,7 +46,7 @@ SHAPE TYPES:
 * c2Ray
 * c2Poly
 
-COLLISION FUNCTIONS (*** is a shape name from the above list):
+COLLISION FUNCTIONS (*** is a capsuleShape name from the above list):
 * c2***to***         - boolean YES/NO hittest
 * c2***to***Manifold - construct manifold to describe how shapes hit
 * c2GJK              - runs GJK algorithm to find closest point pair
@@ -96,11 +96,11 @@ good for general purpose use, and can handle moving objects very well. Grids
 are great and are similar to quad trees.
 
 If implementing a grid it can be wise to have each collideable grid cell hold
-an integer. This integer refers to a 2D shape that can be passed into the
-various functions in this header. The shape can be transformed from "model"
+an integer. This integer refers to a 2D capsuleShape that can be passed into the
+various functions in this header. The capsuleShape can be transformed from "model"
 space to "world" space using c2x -- a transform struct. In this way a grid
-can be implemented that holds any kind of convex shape (that this header
-supports) while conserving memory with shape instancing.
+can be implemented that holds any kind of convex capsuleShape (that this header
+supports) while conserving memory with capsuleShape instancing.
 
 Please email at my address with any questions or comments at:
 author's last name followed by 1748 at gmail
@@ -115,7 +115,7 @@ Features:
 * Robust 2D convex hull generator
 * Lots of correctly implemented and tested 2D math routines
 * Implemented in portable C, and is readily portable to other languages
-* Generic c2Collide, c2Collided and c2CastRay function (can pass in any shape type)
+* Generic c2Collide, c2Collided and c2CastRay function (can pass in any capsuleShape type)
 * Extensive examples at: https://github.com/RandyGaul/tinyheaders/tree/master/examples_tinygl_and_tinyc2
 */
 
@@ -233,7 +233,7 @@ typedef struct
 	float depths[2];
 	c2v contact_points[2];
 
-	// always points from shape A to shape B (first and second shapes passed into
+	// always points from capsuleShape A to capsuleShape B (first and second shapes passed into
 	// any of the c2***to***Manifold functions)
 	c2v normal;
 } c2Manifold;
