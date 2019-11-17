@@ -100,15 +100,28 @@ void Game::handleCollisions()
 	{
 		m_aabbObject.isColliding();
 		m_capsuleObject.isColliding();
-		std::cout << "AABB to Capsule collision!" << std::endl;
+		
+		if (!m_msg_controller[0]) std::cout << "AABB to Capsule collision!" << std::endl;
+		m_msg_controller[0] = true;
 	}
+	else
+	{
+		m_msg_controller[0] = false;
+	}
+	
 
 	// AABB/Circle
 	if (CollisionHandler::resolve(m_aabbObject, m_circleObject))
 	{
 		m_aabbObject.isColliding();
 		m_capsuleObject.isColliding();
-		std::cout << "AABB to Circle collision!" << std::endl;
+
+		if (!m_msg_controller[1]) std::cout << "AABB to Circle collision!" << std::endl;
+		m_msg_controller[1] = true;
+	}
+	else
+	{
+		m_msg_controller[1] = false;
 	}
 
 	// AABB/Poly
@@ -116,7 +129,12 @@ void Game::handleCollisions()
 	{
 		m_aabbObject.isColliding();
 		m_polyObject.isColliding();
-		std::cout << "AABB to Poly collision!" << std::endl;
+		if (!m_msg_controller[2])std::cout << "AABB to Poly collision!" << std::endl;
+		m_msg_controller[2] = true;
+	}
+	else
+	{
+		m_msg_controller[2] = false;
 	}
 
 	// AABB/Ray
@@ -124,7 +142,12 @@ void Game::handleCollisions()
 	{
 		m_aabbObject.isColliding();
 		m_rayObject.isColliding();
-		std::cout << "AABB to Ray collision!" << std::endl;
+		if (!m_msg_controller[3])std::cout << "AABB to Ray collision!" << std::endl;
+		m_msg_controller[3] = true;
+	}
+	else
+	{
+		m_msg_controller[3] = false;
 	}
 
 	// Capsule/Circle
@@ -132,7 +155,13 @@ void Game::handleCollisions()
 	{
 		m_capsuleObject.isColliding();
 		m_circleObject.isColliding();
-		std::cout << "Circle to Capsule collision!" << std::endl;
+
+		if (!m_msg_controller[4])std::cout << "Circle to Capsule collision!" << std::endl;
+		m_msg_controller[4] = true;
+	}
+	else
+	{
+		m_msg_controller[4] = false;
 	}
 
 	// Capsule/Poly
@@ -140,7 +169,13 @@ void Game::handleCollisions()
 	{
 		m_capsuleObject.isColliding();
 		m_polyObject.isColliding();
-		std::cout << "Capsule to Poly collision!" << std::endl;
+
+		if (!m_msg_controller[5])std::cout << "Capsule to Poly collision!" << std::endl;
+		m_msg_controller[5] = true;
+	}
+	else
+	{
+		m_msg_controller[5] = false;
 	}
 
 	// Capsule/Ray
@@ -148,7 +183,13 @@ void Game::handleCollisions()
 	{
 		m_capsuleObject.isColliding();
 		m_rayObject.isColliding();
-		std::cout << "Capsule to Ray collision!" << std::endl;
+
+		if (!m_msg_controller[6])std::cout << "Capsule to Ray collision!" << std::endl;
+		m_msg_controller[6] = true;
+	}
+	else
+	{
+		m_msg_controller[6] = false;
 	}
 
 	// Circle/Poly
@@ -156,7 +197,13 @@ void Game::handleCollisions()
 	{
 		m_circleObject.isColliding();
 		m_polyObject.isColliding();
-		std::cout << "Circle to Poly collision!" << std::endl;
+
+		if (!m_msg_controller[7])std::cout << "Circle to Poly collision!" << std::endl;
+		m_msg_controller[7] = true;
+	}
+	else
+	{
+		m_msg_controller[7] = false;
 	}
 
 	// Circle/Ray
@@ -164,17 +211,28 @@ void Game::handleCollisions()
 	{
 		m_circleObject.isColliding();
 		m_rayObject.isColliding();
-		std::cout << "Circle to Ray collision!" << std::endl;
+
+		if (!m_msg_controller[8])std::cout << "Circle to Ray collision!" << std::endl;
+		m_msg_controller[8] = true;
+	}
+	else
+	{
+		m_msg_controller[8] = false;
 	}
 
 	// Poly/Ray
 	if (CollisionHandler::resolve(m_polyObject, m_rayObject))
 	{
-		m_circleObject.isColliding();
+		m_polyObject.isColliding();
 		m_rayObject.isColliding();
-		std::cout << "Poly to Ray collision!" << std::endl;
+
+		if (!m_msg_controller[9])std::cout << "Poly to Ray collision!" << std::endl;
+		m_msg_controller[9] = true;
 	}
-	
+	else
+	{
+		m_msg_controller[9] = false;
+	}
 }
 
 /////////////////////////////////////////////////////////////

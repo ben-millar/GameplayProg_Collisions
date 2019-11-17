@@ -8,8 +8,8 @@
 // Session 1 Start: 13:15 End: 15:40 – 902 lines of code
 // Session 2 Start: 16:25 End: 17:45 – 248 lines of code
 // Session 3 Start: 19:55 End: 20:15 – 57 lines of code
-// Session 4 Start: 15:05 End: 16:00
-// Total time taken: 5 hours 0 minutes
+// Session 4 Start: 15:05 End: 16:15
+// Total time taken: 5 hours 15 minutes
 
 
 #include "Game.h"

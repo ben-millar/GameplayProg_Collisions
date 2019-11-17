@@ -59,5 +59,7 @@ private:
 	Polygon_Obj m_polyObject;
 	Ray_Obj m_rayObject;
 
+	// Used as a flag to ensure collision message is only printed once per collision
+	std::array<bool, 10> m_msg_controller;
 };
 #endif
