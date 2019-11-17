@@ -114,7 +114,7 @@ void Game::handleCollisions()
 	if (CollisionHandler::resolve(m_aabbObject, m_circleObject))
 	{
 		m_aabbObject.isColliding();
-		m_capsuleObject.isColliding();
+		m_circleObject.isColliding();
 
 		if (!m_msg_controller[1]) std::cout << "AABB to Circle collision!" << std::endl;
 		m_msg_controller[1] = true;
@@ -129,6 +129,7 @@ void Game::handleCollisions()
 	{
 		m_aabbObject.isColliding();
 		m_polyObject.isColliding();
+
 		if (!m_msg_controller[2])std::cout << "AABB to Poly collision!" << std::endl;
 		m_msg_controller[2] = true;
 	}
@@ -142,6 +143,7 @@ void Game::handleCollisions()
 	{
 		m_aabbObject.isColliding();
 		m_rayObject.isColliding();
+
 		if (!m_msg_controller[3])std::cout << "AABB to Ray collision!" << std::endl;
 		m_msg_controller[3] = true;
 	}
