@@ -16,6 +16,11 @@ public:
 	virtual void init() = 0;
 
 	/// <summary>
+	/// Tells the object that it's colliding with something
+	/// </summary>
+	virtual void isColliding() = 0;
+
+	/// <summary>
 	/// Main update method
 	/// </summary>
 	/// <param name="t_deltaTime">Time elapsed since last update call</param>

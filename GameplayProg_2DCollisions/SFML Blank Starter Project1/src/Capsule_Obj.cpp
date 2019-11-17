@@ -17,11 +17,22 @@ void Capsule_Obj::init()
 
 /////////////////////////////////////////////////////////////
 
+void Capsule_Obj::isColliding()
+{
+	m_shape.setOutlineColor(sf::Color::Yellow);
+}
+
+/////////////////////////////////////////////////////////////
+
 void Capsule_Obj::setupShape()
 {
 	m_shape.init();
 	m_shape.setColor(sf::Color::Red);
 	m_shape.setPosition(m_position);
+
+	m_shape.a.setOutlineThickness(2.0f);
+	m_shape.b.setOutlineThickness(2.0f);
+	m_shape.rect.setOutlineThickness(2.0f);
 }
 
 /////////////////////////////////////////////////////////////
@@ -44,6 +55,8 @@ void Capsule_Obj::update(sf::Time t_deltaTime)
 	}
 
 	updateBoundingBox();
+
+	m_shape.setOutlineColor(sf::Color(0U, 0U, 0U, 0U));
 }
 
 /////////////////////////////////////////////////////////////
@@ -96,6 +109,15 @@ void Capsule_Obj::capsuleShape::setColor(sf::Color t_color)
 	a.setFillColor(t_color);
 	b.setFillColor(t_color);
 	rect.setFillColor(t_color);
+}
+
+/////////////////////////////////////////////////////////////
+
+void Capsule_Obj::capsuleShape::setOutlineColor(sf::Color t_color)
+{
+	a.setOutlineColor(t_color);
+	b.setOutlineColor(t_color);
+	rect.setOutlineColor(t_color);
 }
 
 /////////////////////////////////////////////////////////////

@@ -14,6 +14,13 @@ void Ray_Obj::init()
 
 /////////////////////////////////////////////////////////////
 
+void Ray_Obj::isColliding()
+{
+	m_lineEnd.color = sf::Color::Yellow;
+}
+
+/////////////////////////////////////////////////////////////
+
 void Ray_Obj::setupShape()
 {
 	m_shape.append(m_lineStart);
@@ -25,6 +32,8 @@ void Ray_Obj::setupShape()
 void Ray_Obj::update(sf::Time t_deltaTime)
 {
 	updateBoundingBox();
+
+	m_lineEnd.color = sf::Color::White;
 }
 
 /////////////////////////////////////////////////////////////

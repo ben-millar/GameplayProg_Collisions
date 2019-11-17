@@ -17,6 +17,11 @@ public:
 	void init() override;
 
 	/// <summary>
+	/// Tells the object that it is colliding with something
+	/// </summary>
+	void isColliding() override;
+
+	/// <summary>
 	/// Main update method
 	/// </summary>
 	/// <param name="t_deltaTime">Time elapsed since last update call</param>

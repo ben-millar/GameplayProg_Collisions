@@ -17,6 +17,11 @@ public:
 	void init() override;
 
 	/// <summary>
+	/// Tells the object that it is colliding with something
+	/// </summary>
+	void isColliding() override;
+
+	/// <summary>
 	/// Main update method
 	/// </summary>
 	/// <param name="t_deltaTime">Time elapsed since last update call</param>
@@ -51,6 +56,7 @@ private:
 		void init();
 		void setPosition(sf::Vector2f t_pos);
 		void setColor(sf::Color t_color);
+		void setOutlineColor(sf::Color t_color);
 		void draw(sf::RenderWindow& t_window);
 
 	} m_shape;

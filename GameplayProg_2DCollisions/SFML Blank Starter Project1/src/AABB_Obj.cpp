@@ -17,10 +17,19 @@ void AABB_Obj::init()
 
 /////////////////////////////////////////////////////////////
 
+void AABB_Obj::isColliding()
+{
+	m_shape.setOutlineColor(sf::Color::Yellow);
+}
+
+/////////////////////////////////////////////////////////////
+
 void AABB_Obj::setupShape()
 {
 	m_shape.setSize({ 50.0f,50.0f });
-	m_shape.setFillColor(sf::Color::Red);
+	m_shape.setFillColor(sf::Color(255U,64U,64U,224U));
+
+	m_shape.setOutlineThickness(2.0f);
 }
 
 /////////////////////////////////////////////////////////////
@@ -40,6 +49,8 @@ void AABB_Obj::update(sf::Time t_deltaTime)
 	}
 
 	updateBoundingBox();
+
+	m_shape.setOutlineColor(sf::Color(0U, 0U, 0U, 0U));
 }
 
 /////////////////////////////////////////////////////////////

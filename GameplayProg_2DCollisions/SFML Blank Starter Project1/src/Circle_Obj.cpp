@@ -20,11 +20,20 @@ void Circle_Obj::init()
 
 /////////////////////////////////////////////////////////////
 
+void Circle_Obj::isColliding()
+{
+	m_shape.setOutlineColor(sf::Color::Yellow);
+}
+
+/////////////////////////////////////////////////////////////
+
 void Circle_Obj::setupShape()
 {
 	m_shape.setRadius(m_radius);
 	m_shape.setOrigin({ m_radius, m_radius });
 	m_shape.setFillColor(sf::Color::Red);
+
+	m_shape.setOutlineThickness(2.0f);
 }
 
 /////////////////////////////////////////////////////////////
@@ -44,6 +53,8 @@ void Circle_Obj::update(sf::Time t_deltaTime)
 	}
 
 	updateBoundingBox();
+
+	m_shape.setOutlineColor(sf::Color(0U, 0U, 0U, 0U));
 }
 
 /////////////////////////////////////////////////////////////
