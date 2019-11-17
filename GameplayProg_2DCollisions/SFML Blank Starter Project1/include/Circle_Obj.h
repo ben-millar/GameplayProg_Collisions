@@ -40,6 +40,7 @@ private:
 	void updateBoundingBox();
 
 	sf::CircleShape m_shape;
+
 	float m_radius;
 	c2Circle m_boundingBox = c2Circle();
 };

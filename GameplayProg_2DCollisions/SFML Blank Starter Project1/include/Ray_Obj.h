@@ -34,13 +34,24 @@ public:
 	/// <returns>pointer to our bounding box</returns>
 	inline c2Ray const* const getBounds() const { return &m_boundingBox; }
 
+	/// <summary>
+	/// Allows the CollisionHandler to let us know where our ray hit
+	/// </summary>
+	/// <returns>Returns a const pointer to our m_hitPos variable</returns>
+	inline c2Raycast* getRaycast() { return &m_hitPos; }
+
 private:
 
 	void setupShape();
 	void updateBoundingBox();
 
+	sf::Vertex m_lineStart, m_lineEnd;
+
+	sf::VertexArray m_shape = sf::VertexArray(sf::Lines, 2U);
 	c2Ray m_boundingBox = c2Ray();
 
+	// stores the location the ray intersected with something
+	c2Raycast m_hitPos;
 };
 
 #endif //!RAY_OBJ_H

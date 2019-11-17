@@ -2,24 +2,54 @@
 
 void Ray_Obj::init()
 {
-	float xPos = static_cast<float>(rand() % 700 + 51); // range 50–750
-	float yPos = static_cast<float>(rand() % 500 + 51); // range 50–550
+	m_lineStart.position = { 0.0f,0.0f };
+	m_lineStart.color = sf::Color::White;
 
-	float xVel = ((rand() % 50 + 10) / 10.0f); // range 1.0f–5.0f
-	float yVel = ((rand() % 50 + 10) / 10.0f); // range 1.0f–5.0f
+	m_lineEnd.position = { 0.0f,0.0f };
+	m_lineEnd.color = sf::Color::White;
 
-	m_position = { xPos, yPos };
-	m_velocity = { xVel, yVel };
+	setupShape();
+	updateBoundingBox();
+}
+
+/////////////////////////////////////////////////////////////
+
+void Ray_Obj::setupShape()
+{
+	m_shape.append(m_lineStart);
+	m_shape.append(m_lineEnd);
 }
 
 /////////////////////////////////////////////////////////////
 
 void Ray_Obj::update(sf::Time t_deltaTime)
 {
+	updateBoundingBox();
+}
+
+/////////////////////////////////////////////////////////////
+
+void Ray_Obj::updateBoundingBox()
+{
+	// Get a unit vector for our line
+	sf::Vector2f deltaPos = m_lineEnd.position - m_lineStart.position;
+	float magnitude = sqrt((deltaPos.x * deltaPos.x) + (deltaPos.y * deltaPos.y));
+
+	sf::Vector2f unit = deltaPos / magnitude;
+
+	m_boundingBox.d = { unit.x, unit.y };
+
+	m_boundingBox.p = { m_lineStart.position.x, m_lineStart.position.y };
+
+	m_boundingBox.t = magnitude;
 }
 
 /////////////////////////////////////////////////////////////
 
 void Ray_Obj::draw(sf::RenderWindow& t_window)
 {
+	m_lineEnd.position = static_cast<sf::Vector2f>(sf::Mouse::getPosition(t_window));
+	m_shape[1] = m_lineEnd;
+
+	t_window.draw(m_shape);
 }

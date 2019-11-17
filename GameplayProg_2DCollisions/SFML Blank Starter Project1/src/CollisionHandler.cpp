@@ -23,9 +23,9 @@ bool CollisionHandler::resolve(AABB_Obj const& t_aabb, Polygon_Obj const& t_poly
 
 /////////////////////////////////////////////////////////////
 
-bool CollisionHandler::resolve(AABB_Obj const& t_aabb, Ray_Obj const& t_ray)
+bool CollisionHandler::resolve(AABB_Obj const& t_aabb, Ray_Obj& t_ray)
 {
-	return c2RaytoAABB(*t_ray.getBounds(), *t_aabb.getBounds(), nullptr);
+	return c2RaytoAABB(*t_ray.getBounds(), *t_aabb.getBounds(), t_ray.getRaycast());
 }
 
 /////////////////////////////////////////////////////////////
@@ -44,9 +44,9 @@ bool CollisionHandler::resolve(Capsule_Obj const& t_capsule, Polygon_Obj const& 
 
 /////////////////////////////////////////////////////////////
 
-bool CollisionHandler::resolve(Capsule_Obj const& t_capsule, Ray_Obj const& t_ray)
+bool CollisionHandler::resolve(Capsule_Obj const& t_capsule, Ray_Obj& t_ray)
 {
-	return c2RaytoCapsule(*t_ray.getBounds(), *t_capsule.getBounds(), nullptr);
+	return c2RaytoCapsule(*t_ray.getBounds(), *t_capsule.getBounds(), t_ray.getRaycast());
 }
 
 /////////////////////////////////////////////////////////////
@@ -58,14 +58,14 @@ bool CollisionHandler::resolve(Circle_Obj const& t_circle, Polygon_Obj const& t_
 
 /////////////////////////////////////////////////////////////
 
-bool CollisionHandler::resolve(Circle_Obj const& t_circle, Ray_Obj const& t_ray)
+bool CollisionHandler::resolve(Circle_Obj const& t_circle, Ray_Obj& t_ray)
 {
-	return c2RaytoCircle(*t_ray.getBounds(), *t_circle.getBounds(), nullptr);
+	return c2RaytoCircle(*t_ray.getBounds(), *t_circle.getBounds(), t_ray.getRaycast());
 }
 
 /////////////////////////////////////////////////////////////
 
-bool CollisionHandler::resolve(Polygon_Obj const& t_poly, Ray_Obj const& t_ray)
+bool CollisionHandler::resolve(Polygon_Obj const& t_poly, Ray_Obj& t_ray)
 {
-	return c2RaytoPoly(*t_ray.getBounds(), t_poly.getBounds(), nullptr, nullptr);
+	return c2RaytoPoly(*t_ray.getBounds(), t_poly.getBounds(), nullptr, t_ray.getRaycast());
 }
